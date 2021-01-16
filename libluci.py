@@ -5,7 +5,10 @@ import urllib.parse
 import random
 
 
-error_key = {0: "Your browsing activity is empty.", 1: "Error404"}
+error_key = {
+    0: "Your browsing activity is empty.",
+    1: "Error404"
+}
 
 # collector commands
 
@@ -24,7 +27,7 @@ def soup_collector(item_id, item_type):
 
 def name_collector(soup):
     span = soup.find_all('span', {'class': 'feature'})[0]
-    return span.get('id').split('_')[1]
+    return span.get('id').split('feature_')[1].split('_source')[0]
 
 # get commands
 
@@ -199,7 +202,7 @@ def search_detail(name, category_type):
         return soup.text
 
 
-#sample_id = 469716625  # SARS_CoV-2 sample-id 1798174254
-#sample_type = "nuccore"  # nucleotide
-#print(name_collector(soup_collector(str(sample_id), sample_type)))
+sample_id = 469716625  # SARS_CoV-2 sample-id 1798174254
+sample_type = "nuccore"  # nucleotide
+print(name_collector(soup_collector(str(sample_id), sample_type)))
 #print(search_id_list('sars', 'Gene', 'Gene', 'gene'))
