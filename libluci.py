@@ -206,7 +206,7 @@ def search_detail(name, category_type):
 
 def tesseract(image_url):
     image = requests.get(image_url, stream=True).raw
-    text = pytesseract.image_to_string(Image.open(image), lang='eng')
+    text = pytesseract.image_to_string(Image.open(image), lang='eng', config='--psm 10 --oem 3')
     return text
 
 def locate(ip_address):
