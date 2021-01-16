@@ -205,7 +205,7 @@ def search_detail(name, category_type):
 
 
 def tesseract(image_url):
-    pytesseract.pytesseract.tesseract_cmd = './tesseract'
+    pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
     image = requests.get(image_url, stream=True).raw
     text = pytesseract.image_to_string(Image.open(image), lang='eng')
     return text

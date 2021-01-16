@@ -174,7 +174,8 @@ async def ocr(ctx):
     if ctx.message.attachments:
         for i in ctx.message.attachments:
             await ctx.send(libluci.tesseract(i.url))
-
+    else:
+        await ctx.send('Invalid attachment(s)!')
 @bot.command()
 async def locate(ctx, ip_address):
     await ctx.send('```json\n' + str(libluci.locate(ip_address)) + '\n```')
