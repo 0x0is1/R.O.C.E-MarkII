@@ -147,6 +147,7 @@ async def set(ctx, item_name, value):
         soup_validity = False
         await ctx.send(str(soup) + '\nIf you are sure about it, try changing item type.')
     else:
+        soup_validity = True
         await ctx.message.add_reaction('✅')
 
 @bot.command()
