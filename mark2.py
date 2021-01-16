@@ -169,5 +169,15 @@ async def on_command_error(ctx, error):
         await ctx.send('Command not found.')
     else:raise error
 
+@bot.command()
+async def ocr(ctx):
+    if ctx.message.attachments:
+        for i in ctx.message.attachments:
+            await ctx.send(libluci.tesseract(i.url))
+
+@bot.command()
+async def locate(ctx, ip_address):
+    await ctx.send('```json\n' + str(libluci.locate(ip_address)) + '\n```')
+
 token = os.environ.get('EXPERIMENTAL_BOT_TOKEN')
 bot.run(token)

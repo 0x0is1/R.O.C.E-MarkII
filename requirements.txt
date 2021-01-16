@@ -1,3 +1,5 @@
 requests
 discord
 bs4
+pytesseract
+pillow

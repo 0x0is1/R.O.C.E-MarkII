@@ -1,3 +1,5 @@
+import pytesseract
+from PIL import Image
 import requests
 import re
 from bs4 import BeautifulSoup as bs
@@ -202,7 +204,16 @@ def search_detail(name, category_type):
         return soup.text
 
 
-sample_id = 469716625  # SARS_CoV-2 sample-id 1798174254
-sample_type = "nuccore"  # nucleotide
-print(name_collector(soup_collector(str(sample_id), sample_type)))
+def tesseract(image_url):
+    image = requests.get(image_url, stream=True).raw
+    text = pytesseract.image_to_string(Image.open(image), lang='eng')
+    return text
+
+def locate(ip_address):
+    j = requests.get('http://ip-api.com/json/' + str(ip_address)).json()
+    return str(j).replace('{', '').replace('}', '').replace("'", "").replace(',', '\n')
+
+#sample_id = 469716625  # SARS_CoV-2 sample-id 1798174254
+#sample_type = "nuccore"  # nucleotide
+#print(name_collector(soup_collector(str(sample_id), sample_type)))
 #print(search_id_list('sars', 'Gene', 'Gene', 'gene'))
