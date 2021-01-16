@@ -1,5 +1,5 @@
-import pytesseract
-from PIL import Image
+#import pytesseract
+#from PIL import Image
 import requests
 import re
 from bs4 import BeautifulSoup as bs
@@ -203,13 +203,14 @@ def search_detail(name, category_type):
     else:
         return soup.text
 
-
+'''
 def tesseract(image_url):
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
     image = requests.get(image_url, stream=True).raw
     text = pytesseract.image_to_string(Image.open(image), lang='eng')
     return text
 
+'''
 def locate(ip_address):
     j = requests.get('http://ip-api.com/json/' + str(ip_address)).json()
     return str(j).replace('{', '').replace('}', '').replace("'", "").replace(',', '\n')
