@@ -133,7 +133,9 @@ async def get(ctx, get_module, count=1):
             else:
                 await ctx.send(str('```css\n'+str(i)+'\n```'))
     else:
-        await ctx.send(soup)
+        chunks = [soup[j:j+1980] for j in range(0, len(soup), 1980)]
+        for i in chunks:
+            await ctx.send(str('```css\n'+str(i)+'\n```'))
 
 @bot.command()
 async def set(ctx, item_name, value):
