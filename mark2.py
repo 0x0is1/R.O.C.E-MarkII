@@ -169,6 +169,7 @@ async def on_command_error(ctx, error):
         await ctx.send('Command not found.')
     else:raise error
 
+'''
 @bot.command()
 async def ocr(ctx):
     if ctx.message.attachments:
@@ -176,6 +177,7 @@ async def ocr(ctx):
             await ctx.send(libluci.tesseract(i.url))
     else:
         await ctx.send('Invalid attachment(s)!')
+'''
 @bot.command()
 async def locate(ctx, ip_address):
     await ctx.send('```json\n' + str(libluci.locate(ip_address)) + '\n```')
