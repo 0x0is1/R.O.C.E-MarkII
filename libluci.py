@@ -215,6 +215,9 @@ def locate(ip_address):
     j = requests.get('http://ip-api.com/json/' + str(ip_address)).json()
     return str(j).replace('{', '').replace('}', '').replace("'", "").replace(',', '\n')
 
+def reverse_image_search(url):
+    return 'https://images.google.com/searchbyimage?image_url=' + url
+
 #sample_id = 469716625  # SARS_CoV-2 sample-id 1798174254
 #sample_type = "nuccore"  # nucleotide
 #print(name_collector(soup_collector(str(sample_id), sample_type)))
