@@ -1,37 +1,103 @@
-## Welcome to GitHub Pages
+# ROCE -MarkII
 
-You can use the [editor on GitHub](https://github.com/0x0is1/R.O.C.E-MarkII/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Description
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Roce is a discord bots series of unique bots, this version is mark 2, which is used to connect ncbi cli API embedded in discord.py for genetical engineerng and research purpose with some easter eggs features.
 
-### Markdown
+This tool is based on our previous developed cli tool for ncbi data access [glimmer](https://github.com/0x0is1/glimmer.git). glimmer is a tool which do not really uses ncbi data api but, it uses it's scrapping feature to get data from rendered webpages from [ncbi's official website](https://www.ncbi.nlm.nih.gov).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Install
 
-```markdown
-Syntax highlighted code block
+You can use [this](https://discord.com/oauth2/authorize?client_id=798966300448784425&permissions=8&scope=bot
+) invite link to call this bot on your server, if you are genetic engineering or student, it is available for public usage.
 
-# Header 1
-## Header 2
-### Header 3
+## Host
 
-- Bulleted
-- List
+You can also host this bot by using following processes:
 
-1. Numbered
-2. List
+* Download this repository directly or by using git cli i.e-
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```css
+> git clone https://github.com/0x0is1/R.O.C.E-MarkII
+> python3 -m pip install requirements.txt
+> export EXPERIMENTAL_BOT_TOKEN='<Your bot token here>'
+> python3 mark2.py
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Requirements
 
-### Jekyll Themes
+* Python3.5+
+* python-requests
+* discord.py
+* Beautifulsoup (bs4)
+* urllib
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/0x0is1/R.O.C.E-MarkII/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Compatibilty _(for hosting this bot personally)_
 
-### Support or Contact
+Any device that can run discord bots including raspberry pi and other OS'es.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Commands
+
+* `set` : Command used for seting parameters to get data.
+* `get` : Command used for getting parameter.
+* `search`: command used to make search for genetic materials.
+* `option`: command used for getting options saved.
+
+Type help <COMMAND_NAME> to get help for specific command.
+
+## Sub-commands
+
+**set:**
+
+* `Description`: used for setting item id and item type.
+* `Example`: set id 1798174254 and set type nuccore
+* `Options for item type`:
+  * _Nucleotide (nuccore)_
+  * _Genes (gene)_
+  * _Protein (protein)_
+  * _Probe (probe)_
+  * _Popset(popset)_
+
+`Options for item id:` use search <ITEM_TYPE> <ITEM_NAME> to get `ids`.
+
+**get:**
+
+* `Description`:
+use for getting data for saved item id and item type.
+* `Example`:
+get gene, get cds etc.
+* `Options for get`:
+  * _Name (name)_
+  * _Overview (overview)_
+  * _Comments (comment)_
+  * _Gene (gene)_
+  * _Stem Loop (stem-loop)_
+  * _Peptide (peptide)_
+  * _CDS (cds)_
+  * _Source (source)_
+  * _All(soup)_
+
+**search:**
+
+* `Description`:
+use for searching data for specific detail type.
+* `Example`:
+search nuccore SARS, search gene rept etc.
+* `Options for item type`:
+  * _Nucleotide (nuccore)_
+  * _Genes (gene)_
+  * _Protein (protein)_
+  * _Probe (probe)_
+  * _Popset(popset)_
+
+## Feedback and bug report
+
+Send feedback or bug report to our developers on this [mail id](0x0is1@protonmail.com).
+
+## Previews
+
+![peview-1](https://raw.githubusercontent.com/0x0is1/inproject-asset-container/master/p1.png)
+
+![peview-2](https://raw.githubusercontent.com/0x0is1/inproject-asset-container/master/p2.png)
+
+![peview-3](https://raw.githubusercontent.com/0x0is1/inproject-asset-container/master/p3.png)
