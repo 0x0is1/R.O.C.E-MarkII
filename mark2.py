@@ -3,6 +3,7 @@ from discord.ext import commands
 import discord
 import libluci
 import os
+from webserver import wsv
 
 ## default
 sample_id = 1798174254  # SARS_CoV-2 sample-id 1798174254
@@ -107,8 +108,8 @@ def help_embed(help_module):
     else:
         embed.add_field(name='Unknown mudule', value="Info for given module is not available.")
         return embed
-
-bot = commands.Bot(command_prefix='>')
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='>', intents=intents)
 
 bot.remove_command('help')
 
@@ -192,5 +193,6 @@ async def rev(ctx):
     else:
         await ctx.send('Invalid attachment(s)!')
 
-token = os.environ.get('EXPERIMENTAL_BOT_TOKEN')
+token = os.environ.get('BOT_TOKEN')
+wsv()
 bot.run(token)
