@@ -173,26 +173,6 @@ async def on_command_error(ctx, error):
         await ctx.send('Command not found.')
     else:raise error
 
-'''
-@bot.command()
-async def ocr(ctx):
-    if ctx.message.attachments:
-        for i in ctx.message.attachments:
-            await ctx.send(libluci.tesseract(i.url))
-    else:
-        await ctx.send('Invalid attachment(s)!')
-'''
-@bot.command()
-async def locate(ctx, ip_address):
-    await ctx.send('```json\n' + str(libluci.locate(ip_address)) + '\n```')
-@bot.command()
-async def rev(ctx):
-    if ctx.message.attachments:
-        for i in ctx.message.attachments:
-            await ctx.send(libluci.reverse_image_search(i.url))
-    else:
-        await ctx.send('Invalid attachment(s)!')
-
 token = os.environ.get('BOT_TOKEN')
 wsv()
 bot.run(token)
